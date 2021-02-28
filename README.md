@@ -1,2 +1,4 @@
-# chess_engine
-Building Chess Engine
+# Chess Engine
+Mainly focused on:
+> Move Recommendation
+> Advantage for white/black
