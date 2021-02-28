@@ -1,4 +1,4 @@
 # Chess Engine
 Mainly focused on:
-> Move Recommendation
+> Move Recommendation, 
 > Advantage for white/black
