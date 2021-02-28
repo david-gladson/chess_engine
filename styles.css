@@ -1,0 +1,115 @@
+* {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+body 
+{
+    background-color: rgba(0, 0, 200, 0.8);
+}
+
+[data-piece='BlackBishop'] {
+    background-image: url('merida/320/BlackBishop.png');
+}
+
+[data-piece='WhiteBishop'] {
+    background-image: url('merida/320/WhiteBishop.png');
+}
+
+[data-piece='BlackRook'] {
+    background-image: url('merida/320/BlackRook.png');
+}
+
+[data-piece='WhiteRook'] {
+    background-image: url('merida/320/WhiteRook.png');
+}
+
+[data-piece='BlackKing'] {
+    background-image: url('merida/320/BlackKing.png');
+}
+
+[data-piece='WhiteKing'] {
+    background-image: url('merida/320/WhiteKing.png');
+}
+
+[data-piece='BlackQueen'] {
+    background-image: url('merida/320/BlackQueen.png');
+}
+
+[data-piece='WhiteQueen'] {
+    background-image: url('merida/320/WhiteQueen.png');
+}
+
+[data-piece='BlackKnight'] {
+    background-image: url('merida/320/BlackKnight.png');
+}
+
+[data-piece='WhiteKnight'] {
+    background-image: url('merida/320/WhiteKnight.png');
+}
+
+[data-piece='BlackQueen'] {
+    background-image: url('merida/320/BlackQueen.png');
+}
+
+[data-piece='WhitePawn'] {
+    background-image: url('merida/320/WhitePawn.png');
+}
+
+[data-piece='BlackPawn'] {
+    background-image: url('merida/320/BlackPawn.png');
+}
+
+#mainChessBoard
+{
+    margin-left: 10%;
+    padding: 2%;
+    width:600px;
+    height:600px;
+}
+
+.board
+{
+    width:75px;
+    height:75px;
+    float:left;
+}
+
+.pieceHolder 
+{
+    position: relative;
+    height: 70px;
+    width: 70px;
+    /* top: 3px;
+    left: 3px; */
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+    opacity: 0.99;
+    margin: 1px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0px red inset;
+}
+
+/* .empty {
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    border: 3px salmon solid;
+    background-color: azure;
+} */
+
+.hold {
+    border: solid #ccc 0px;
+}
+
+.hovered {
+    box-shadow: 0px -3px 1px red inset;
+}
+
+.invisible {
+    display: none;
+    /* background: yellow; */
+}

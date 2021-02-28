@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Drag Drop</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href=""> -->
+        <style>
+            body {
+                background-color: aqua;
+            }
+
+            .fill {
+                background-image: url('merida/80/BlackBishop.png');
+                background-repeat: no-repeat;
+                position: relative;
+                height: 150px;
+                width: 150px;
+                top: 5px;
+                left: 5px;
+                cursor: pointer;
+            }
+
+            .empty {
+                display: inline-block;
+                height: 160px;
+                width: 160px;
+                margin: 10px;
+                border: 3px salmon solid;
+                background-color: azure;
+            }
+
+            .hold {
+                border: solid #ccc 0px;
+            }
+
+            .hovered {
+                background: #f4f4f4;
+                border-style: dashed;
+            }
+
+            .invisible {
+                display: none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="empty">
+            <div class="fill" draggable="true">  </div>
+        </div>
+        <div class="empty"> </div>
+        <div class="empty"> </div>
+        <div class="empty"> </div>
+        <div class="empty"> </div>
+
+
+        <script>
+            const fill = document.querySelector(".fill");
+            const empties = document.querySelectorAll(".empty");
+
+            // fill listeners
+            fill.addEventListener("dragstart", dragStart);
+            fill.addEventListener("dragend", dragEnd);
+
+            // loop through empties
+            empties.forEach(item => {
+                item.addEventListener('dragover', dragOver);
+                item.addEventListener('dragenter', dragEnter);
+                item.addEventListener('dragleave', dragLeave);
+                item.addEventListener('drop', dragDrop);
+            })
+
+            // drag functions
+            function dragStart() {
+                this.className += ' hold';
+                console.log("drag start")
+                setTimeout( () => (this.className = 'invisible'), 0);
+            }
+
+            function dragEnd() {
+                console.log("drag end")
+                this.className = 'fill'
+            }
+
+            function dragOver(e) {
+                console.log("drag over")
+                e.preventDefault()
+            }
+
+            function dragEnter(e) {
+                console.log("drag enter")
+                e.preventDefault()
+                this.className += " hovered" 
+            }
+
+            function dragLeave() {
+                console.log("drag leave")
+                this.className = "empty" 
+            }
+
+            function dragDrop() {
+                console.log("drag drop")
+                this.className = "empty";
+                this.append(fill);
+            }
+
+
+
+        </script>
+    </body>
+</html>

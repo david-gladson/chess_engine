@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Test </title>
+        <style>
+            #contentContainer {
+                width: 550px;
+                height: 350px;
+                border: 15px #EDEDED solid;
+                overflow: hidden;
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+
+            #thing {
+                width: 75px;
+                height: 75px;
+                background-color: rgba(255, 207, 0);
+                border-radius: 50%;
+                border: 15px rgba(255, 199, 0) solid;
+
+                transform: translate3d(50px, 50px, 0);
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="contentContainer">
+            <div id="thing"> </div>
+            <div id="thing2"> </div>    
+        </div>
+
+        <script>
+
+            var thething = document.querySelector("#thing");
+            var container = document.querySelector("#contentContainer");
+
+            container.addEventListener("click", getClickPosition, false);
+
+            function getClickPosition(e) {
+                var parentPos = getPosition(container);
+                var xPos = e.clientX - parentPos.x -  thething.offsetWidth/2;
+                var yPos = e.clientY - parentPos.y - thething.offsetHeight/2;
+
+                var translateValue = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+                thething.style.transform = translateValue;
+
+            }
+
+            function getPosition(el) {
+                var xPos = 0;
+                var yPos = 0;
+                
+                while (el) {
+                    if (el.tagName == "BODY") {
+                    // deal with browser quirks with body/window/document and page scroll
+                    var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+                    var yScroll = el.scrollTop || document.documentElement.scrollTop;
+                
+                    xPos += (el.offsetLeft - xScroll + el.clientLeft);
+                    yPos += (el.offsetTop - yScroll + el.clientTop);
+                    } else {
+                    // for all other non-BODY elements
+                    xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+                    yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+                    }
+                
+                    el = el.offsetParent;
+                }
+                return {
+                    x: xPos,
+                    y: yPos
+                };
+            }
+
+        </script>
+    </body>
+</html>
